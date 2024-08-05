@@ -1,0 +1,5 @@
+/server/packages
+/server/x64
+/server/.vs
+/server/Server_CPP/x64
+/client_web/node_modules
