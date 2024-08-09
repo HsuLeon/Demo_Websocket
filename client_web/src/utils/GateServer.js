@@ -1,7 +1,6 @@
 
 function CGateServer()
 {
-	let oGateServer = null;
 	let onConnected = null;
 	let onReconnected = null;
 	let onDisconnected = null;
@@ -20,14 +19,14 @@ function CGateServer()
 	{
 		console.log(`CGateServer onclose at ${new Date()}`);
 		mConnected = false;
-		oGateServer.onDisconnected(errMsg);
+		onDisconnected(errMsg);
 	}
 
 	const packets = {};
 	function onMessage(e)
 	{
 		console.log(`CGateServer onMessage at ${new Date()}`);
-		oGateServer.receive(e.data);
+		onReceive(e.data);
 	}
 
 	function onError(e)
@@ -62,7 +61,6 @@ function CGateServer()
 
 	CGateServer.prototype.start = function ({protocol, ip, port})
 	{
-		oGateServer = this;
 		// call method in parent class
 		console.log('CGateServer do start');
 
